@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   File name: Mullins_Jacob_HW2_Prob4.m
+%   File location: H/JacobMullins
+%
+%   Programmer name: Jacob Mullins
+%
+%   Date: February 17, 2022
+%
+%   Prgram description: This program will determine the tax based off
+%   income
+%
+%   Program inputs: income
+%   Program outputs: income_tax, medicare, total_tax
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Instructor/TA comments
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clc;                             % clear command window
+clear;                           % clear all variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+disp("This program will determine the tax based off income");
+
+income=input('Enter your income---');
+
+if income>=0 && income<=6000
+    medicare=income*.015;
+    income_tax=0;
+    total_tax=medicare+income_tax;
+elseif income>6000 && income<=34000
+        medicare=income*.015;
+        income_tax=(income-6000)*.15;
+        total_tax=medicare+income_tax;
+elseif income>34000 && income<=80000
+    medicare=income*.015;
+    income_tax=(income-34000)*.3+4200;
+    total_tax=medicare+income_tax;
+elseif income>80000 && income<=180000
+    medicare=income*.015;
+    income_tax=(income-80000)*.40+18000;
+    total_tax=medicare+income_tax;
+elseif income>180000
+    medicare=income*.015;
+    income_tax=(income-180000)*.45+58000;
+    total_tax=medicare+income_tax;
+end
+disp("The medicare levy is");
+disp(medicare);
+disp("The income tax is");
+disp(income_tax);
+disp("The total tax is");
+disp(total_tax);
