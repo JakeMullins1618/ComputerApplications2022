@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   File name: Mullins_Jacob_HW2_Prob2.m
+%   File location: H/JacobMullins
+%
+%   Programmer name: Jacob Mullins
+%
+%   Date: February 17, 2022
+%
+%   Prgram description: This program defines multiplies and adds matricies  
+%
+%   Program inputs: m, n, row, column, minrow, maxrow, mincol, max col
+%   Program outputs: vary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Instructor/TA comments
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clc;                             % clear command window
+clear;                           % clear all variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+disp("This program defines multiplies and adds matricies");
+
+%A
+n=input('Enter a value for n---');
+m=input('Enter a value for m---');
+
+%B
+array=randi([-100,100],n,m);
+disp(array);
+
+%C
+%C1
+sum1=0;
+for rownum=1:1:n
+    for colnum=1:1:m
+        sum1=sum1+array(rownum,colnum);
+    end
+end
+disp("The sum of the array is");
+disp(sum1);
+
+%C2
+row=input('Enter a row number---');
+sum2=0;
+for col=1:1:m
+    sum2=sum2+array(1,col);
+end
+disp('The sum of the chosen row is');
+disp(sum2);
+
+%C3
+column=input('Enter column number---');
+sum3=0;
+for row2=1:1:n
+    sum3=sum3+array(row2,1);
+end
+disp('The sum of the chosen column is');
+disp(sum3);
+
+%C4
+right_diag=0;
+for index=1:1:m
+    right_diag=right_diag+array(index,index);
+end
+disp("The sum of the right diagonal is");
+disp(right_diag);
+
+%C5
+left_diag=0;
+for index=1:1:m
+    left_diag=left_diag+array(index,m-index+1);
+end
+disp("The sum of the left diagonal is");
+disp(left_diag);
+
+%C6 & C7
+arraymin=min(min(array));
+arraymax=max(max(array));
+disp("The minimum value of the array is");
+disp(arraymin);
+disp("The maximum value of the array is");
+disp(arraymax);
+
+%C8
+minrow=input('Enter a row to find the minimum---');
+minnumrow=1000;
+for col2=1:1:m
+    if array(minrow,col2)<minnumrow
+        minnumrow=array(minrow,col2);
+    end
+end
+disp("The minimum value in that row is");
+disp(minnumrow);
+
+%C9
+maxrow=input('Enter a row to find the maximum---');
+maxnumrow=-1000;
+for col2=1:1:m
+    if array(maxrow,col2)>maxnumrow
+        maxnumrow=array(maxrow,col2);
+    end
+end
+disp('The maximum value in that row is');
+disp(maxnumrow);
+
+%C10
+mincol=input('Enter a column to find the minimum---');
+mincolnum=1000;
+for row4=1:1:n
+    if array(row4,mincol)<mincolnum
+        mincolnum=array(row4,mincol);
+    end
+end
+disp('The value of the minimum value in that column is');
+disp(mincolnum);
+
+%C11
+maxcol=input('Enter a column to find the maximum---');
+maxcolnum=-1000;
+for row4=1:1:n
+    if array(row4,maxcol)>maxcolnum
+        maxcolnum=array(row4,maxcol);
+    end
+end
+disp('The value of the maximum value in that column is');
+disp(maxcolnum);
